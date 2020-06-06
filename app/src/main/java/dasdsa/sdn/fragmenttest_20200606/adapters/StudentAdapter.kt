@@ -17,7 +17,7 @@ class StudentAdapter(context: Context, resId: Int, list: List<Student>) : ArrayA
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
-        val tempRow = convertView
+        var tempRow = convertView
         tempRow?.let {
             //null이 아닌경우
         }.let {
