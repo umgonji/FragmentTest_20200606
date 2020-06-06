@@ -9,6 +9,7 @@ import dasdsa.sdn.fragmenttest_20200606.R
 import dasdsa.sdn.fragmenttest_20200606.datas.Student
 
 class StudentAdapter(context: Context, resId: Int, list: List<Student>) : ArrayAdapter<Student>(context, resId, list) {
+
     val mContext = context
     val mList = list
     val inf = LayoutInflater.from(mContext)
@@ -17,16 +18,14 @@ class StudentAdapter(context: Context, resId: Int, list: List<Student>) : ArrayA
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         val tempRow = convertView
-        if (tempRow == null) {
+        tempRow?.let {
+            //null이 아닌경우
+        }.let {
             tempRow = inf.inflate(R.layout.student_list_item, null)
         }
-
         val row = tempRow!!
 
-
-
+        return row
     }
-
-
 
 }
