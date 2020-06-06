@@ -12,7 +12,7 @@ import dasdsa.sdn.fragmenttest_20200606.R
 import kotlinx.android.synthetic.main.fragment_my_profile.*
 import kotlinx.android.synthetic.main.fragment_myprofile.*
 
-class MyProfileFragment : Fragment() {
+class MyProfileFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,15 +24,23 @@ class MyProfileFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setupEvents()
+        setValues()
+    }
 
+    override fun setupEvents() {
         dialBtn.setOnClickListener {
             val inputPhoneNum = phoneNumEdt.text.toString()
 
             val myUri = Uri.parse("tel:$inputPhoneNum")
             val myIntent = Intent(Intent.ACTION_DIAL, myUri)
             startActivity(myIntent)
-
         }
     }
+
+    override fun setValues() {
+    }
+
+
 
 }
