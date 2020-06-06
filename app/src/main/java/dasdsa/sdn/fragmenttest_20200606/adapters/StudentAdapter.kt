@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import dasdsa.sdn.fragmenttest_20200606.R
 import dasdsa.sdn.fragmenttest_20200606.datas.Student
 
@@ -24,6 +25,17 @@ class StudentAdapter(context: Context, resId: Int, list: List<Student>) : ArrayA
             tempRow = inf.inflate(R.layout.student_list_item, null)
         }
         val row = tempRow!!
+
+        val studentInfoTxt = row.findViewById<TextView>(R.id.studentInfoTxt)
+
+        val data = mList.get(position)
+
+        val age = 2020 - data.birthYear +1
+        var gender = "남성"
+        if(!data.gender) {
+            gender = "여성"
+        }
+        studentInfoTxt.text = "${data.name}(${age}세, ${gender})"
 
         return row
     }
